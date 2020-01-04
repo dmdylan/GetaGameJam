@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemySpawner : MonoBehaviour
+public class Spawner : MonoBehaviour
 {
     [SerializeField] private Transform[] enemySpawners = null;
     public FloatValue enemyCount;
@@ -13,23 +13,23 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     { 
         
-        SpawnEnemies();
+        SpawnObjects();
 
     }
 
     //Create list of open spawn points and a list of enemies from other method
     //Run through list of enemies and spawn them at random open location
-    void SpawnEnemies()
+    void SpawnObjects()
     {
         List<Transform> freeSpawnPoints = new List<Transform>(enemySpawners);
         List<Enemy> enemies = AddEnemiesToList();
 
         for(int i = 0; i < enemies.Count; i++)
         {
-            int spawnPointIndex = Random.Range(0, enemySpawners.Length);
+            int spawnPointIndex = Random.Range(0, freeSpawnPoints.Count);
             Transform position = freeSpawnPoints[spawnPointIndex];
-            freeSpawnPoints.RemoveAt(spawnPointIndex);
             Instantiate(enemies[i], position.position, position.rotation);           
+            freeSpawnPoints.RemoveAt(spawnPointIndex);
         }
         
         return;
