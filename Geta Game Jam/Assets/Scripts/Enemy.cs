@@ -4,10 +4,10 @@ public class Enemy : MonoBehaviour
 {
     public EnemyProfile profile;
     private Transform player;
-
+    private float attackTimer;
     private float enemyHealth;
 
-    void Awake()
+    void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         enemyHealth = profile.health;
@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         EnemyDeath();
+        AttackTimer();
     }
 
     // Update is called once per frame
@@ -29,7 +30,7 @@ public class Enemy : MonoBehaviour
         transform.LookAt(player.position);
         var distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
-        if (distanceToPlayer > 1.5 && profile.type != EnemyType.Mage)
+        if (distanceToPlayer > 1 && profile.type != EnemyType.Mage)
         {
             transform.position = Vector3.MoveTowards(transform.position, player.position, profile.moveSpeed * Time.deltaTime);
         }
@@ -54,6 +55,23 @@ public class Enemy : MonoBehaviour
         if(enemyHealth <= 0)
         {
             Destroy(gameObject);
+        }
+    }
+
+    private float AttackTimer()
+    {
+        attackTimer += Time.deltaTime;
+
+        return attackTimer;
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if(collision.collider.tag == "Player" && attackTimer >= 2)
+        {
+            attackTimer = 0;
+            PlayerHealth player = collision.collider.GetComponent<PlayerHealth>();
+            player.PlayerTakeDamage(profile.damage);
         }
     }
 }

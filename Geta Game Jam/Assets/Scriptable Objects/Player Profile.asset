@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7803b583d43d3854b8159bb1688dcebc, type: 3}
   m_Name: Player Profile
   m_EditorClassIdentifier: 
-  health: 10
-  damage: 2
-  moveSpeed: 6
+  health: 100
+  moveSpeed: 8
   score: 0

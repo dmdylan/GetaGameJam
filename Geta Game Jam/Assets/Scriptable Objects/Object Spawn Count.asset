@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdb2835e0c6557c41b464e8ad9811acd, type: 3}
   m_Name: Object Spawn Count
   m_EditorClassIdentifier: 
-  Value: 20
+  Value: 30

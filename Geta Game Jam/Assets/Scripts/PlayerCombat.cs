@@ -7,6 +7,7 @@ public class PlayerCombat : MonoBehaviour
 {
     public PlayerProfile playerProfile;
     public WeaponProfile weaponProfile;
+    public Animator swordAnimation;
     private float attackTimer;
 
     // Update is called once per frame
@@ -21,6 +22,7 @@ public class PlayerCombat : MonoBehaviour
         attackTimer += Time.deltaTime;
         if (Input.GetButton("Fire1") && attackTimer >= weaponProfile.attackCooldown)
         {
+            swordAnimation.SetBool("Attacked", true);
             attackTimer = 0f;
             DoAttack();
         }
