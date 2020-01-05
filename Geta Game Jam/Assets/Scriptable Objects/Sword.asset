@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8484576cdcec850449fa7ebcafd96d04, type: 3}
   m_Name: Sword
   m_EditorClassIdentifier: 
-  attackRange: 2
-  attackDamage: 10
-  attackCooldown: 1
+  attackRange: 3
+  attackDamage: 20
+  attackCooldown: 1.25
   weaponType: 0

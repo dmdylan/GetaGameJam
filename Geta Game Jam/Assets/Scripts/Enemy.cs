@@ -2,12 +2,14 @@
 
 public class Enemy : MonoBehaviour
 {
+    public FloatValue playerScore;
+    public IntValue enemiesRemaining;
     public EnemyProfile profile;
     private Transform player;
     private float attackTimer;
     private float enemyHealth;
 
-    void Start()
+    void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         enemyHealth = profile.health;
@@ -34,7 +36,7 @@ public class Enemy : MonoBehaviour
         {
             transform.position = Vector3.MoveTowards(transform.position, player.position, profile.moveSpeed * Time.deltaTime);
         }
-        else if (distanceToPlayer > 10 && profile.type == EnemyType.Mage)
+        else if (distanceToPlayer > 15 && profile.type == EnemyType.Mage)
         {
             transform.position = Vector3.MoveTowards(transform.position, player.position, profile.moveSpeed * Time.deltaTime);
         }
@@ -54,6 +56,8 @@ public class Enemy : MonoBehaviour
     {
         if(enemyHealth <= 0)
         {
+            playerScore.Value += profile.enemyValue;
+            enemiesRemaining.Value--;
             Destroy(gameObject);
         }
     }

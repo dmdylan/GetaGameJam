@@ -6,6 +6,7 @@ public class Spawner : MonoBehaviour
 {
     [SerializeField] private Transform[] enemySpawners = null;
     public FloatValue enemyCount;
+    public IntValue enemiesRemaining;
     public FloatValue propCount;
     public Enemy[] enemyPrefab = null;
     public Props[] propsPrefabs = null;
@@ -75,7 +76,6 @@ public class Spawner : MonoBehaviour
     private List<Enemy> AddEnemiesToList()
     {
         List<Enemy> enemiesToSpawn = new List<Enemy>();
-        //var currentEnemyCountValue = 0f;
 
         for(int i = 0; i < enemyCount.Value;)
         {
@@ -87,16 +87,14 @@ public class Spawner : MonoBehaviour
             else
             {
                 i += enemy.profile.enemyValue;
-                //currentEnemyCountValue = i;
                 enemiesToSpawn.Add(enemy);
             }
         }
 
-        //foreach (Enemy x in enemiesToSpawn)
-        //{
-        //    print(x);
-        //    print(currentEnemyCountValue);
-        //}   
+        foreach (Enemy x in enemiesToSpawn)
+        {
+            enemiesRemaining.Value++;
+        }   
 
         return enemiesToSpawn;
     }

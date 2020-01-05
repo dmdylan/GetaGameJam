@@ -18,6 +18,7 @@ public class FirstPersonCamera : MonoBehaviour
     {
         character = this.transform.parent.gameObject;
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     // Update is called once per frame

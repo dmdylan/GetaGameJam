@@ -394,6 +394,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd2bbb1a5fc006c488870920c501100c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerScore: {fileID: 11400000, guid: d390092e6f39b264f97a0596b390b870, type: 2}
+  enemiesRemaining: {fileID: 11400000, guid: 24f64e2858c52d84b93e93bcc8c5b9ce, type: 2}
   profile: {fileID: 11400000, guid: 1e5cc756afadc2e49acb3a08d53d8f38, type: 2}
 --- !u!1 &5086850567726794989
 GameObject:

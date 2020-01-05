@@ -14,11 +14,11 @@ public class PlayerCombat : MonoBehaviour
     void Update()
     {
         PlayerAttackAction();
-        PlayerDodgeAction();
     }
 
     void PlayerAttackAction()
     {
+        swordAnimation.SetBool("Attacked", false);
         attackTimer += Time.deltaTime;
         if (Input.GetButton("Fire1") && attackTimer >= weaponProfile.attackCooldown)
         {
@@ -32,7 +32,7 @@ public class PlayerCombat : MonoBehaviour
     {
         Ray ray = new Ray(transform.position, transform.forward);
         RaycastHit raycastHit;
-
+        
         if(Physics.Raycast(ray, out raycastHit, weaponProfile.attackRange))
         {
             if(raycastHit.collider.tag == "Enemy")
@@ -40,14 +40,6 @@ public class PlayerCombat : MonoBehaviour
                 Enemy enemy = raycastHit.collider.GetComponent<Enemy>();
                 enemy.TakeDamage(weaponProfile.attackDamage);
             }
-        }
-    }
-
-    void PlayerDodgeAction()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Debug.Log("Dodge clicked");
         }
     }
 
