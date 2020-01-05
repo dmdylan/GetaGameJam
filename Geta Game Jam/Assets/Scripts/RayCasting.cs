@@ -6,12 +6,6 @@ public class RayCasting : MonoBehaviour
 {
     public float targetDistance;
 
-    // Update is called once per frame
-    void Update()
-    {
-        GetDistanceInfo();
-    }
-
     public void GetDistanceInfo()
     {
         RaycastHit raycastHit;

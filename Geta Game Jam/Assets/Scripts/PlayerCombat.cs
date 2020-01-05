@@ -1,12 +1,13 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
 {
     public PlayerProfile playerProfile;
-    RaycastHit hit;
-    Ray ray;
+    public WeaponProfile weaponProfile;
+    private float attackTimer;
 
     // Update is called once per frame
     void Update()
@@ -17,9 +18,26 @@ public class PlayerCombat : MonoBehaviour
 
     void PlayerAttackAction()
     {
-        if (Input.GetButton("Fire1"))
+        attackTimer += Time.deltaTime;
+        if (Input.GetButton("Fire1") && attackTimer >= weaponProfile.attackCooldown)
         {
-            Debug.Log("Attack clicked");
+            attackTimer = 0f;
+            DoAttack();
+        }
+    }
+
+    private void DoAttack()
+    {
+        Ray ray = new Ray(transform.position, transform.forward);
+        RaycastHit raycastHit;
+
+        if(Physics.Raycast(ray, out raycastHit, weaponProfile.attackRange))
+        {
+            if(raycastHit.collider.tag == "Enemy")
+            {
+                Enemy enemy = raycastHit.collider.GetComponent<Enemy>();
+                enemy.TakeDamage(weaponProfile.attackDamage);
+            }
         }
     }
 

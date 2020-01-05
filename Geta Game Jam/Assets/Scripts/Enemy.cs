@@ -5,9 +5,17 @@ public class Enemy : MonoBehaviour
     public EnemyProfile profile;
     private Transform player;
 
+    private float enemyHealth;
+
     void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        enemyHealth = profile.health;
+    }
+
+    void Update()
+    {
+        EnemyDeath();
     }
 
     // Update is called once per frame
@@ -34,5 +42,18 @@ public class Enemy : MonoBehaviour
             transform.position = transform.position;
         }
 
+    }
+    
+    public void TakeDamage(float damageAmount)
+    {
+        enemyHealth -= damageAmount;
+    }
+
+    void EnemyDeath()
+    {
+        if(enemyHealth <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }
