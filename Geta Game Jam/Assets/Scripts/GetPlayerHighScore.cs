@@ -6,16 +6,12 @@ using TMPro;
 public class GetPlayerHighScore : MonoBehaviour
 {
     public TextMeshProUGUI highScoreText;
-    private float highScore;
+    public FloatValue highScore;
 
     // Start is called before the first frame update
-    void Start()
+    void Update()
     {
-        if (!PlayerPrefs.HasKey("HighScore"))
-        {
-            PlayerPrefs.SetFloat("HighScore", 0);
-            highScoreText.text = PlayerPrefs.GetFloat("HighScore").ToString();
-        }
+        highScoreText.text = PlayerPrefs.GetFloat("HighScore").ToString();
     }
 
 }

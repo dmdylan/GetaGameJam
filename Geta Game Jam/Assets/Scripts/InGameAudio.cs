@@ -4,8 +4,17 @@ using UnityEngine;
 
 public class InGameAudio : MonoBehaviour
 {
+    static bool AudioBegin = false;
+
     void Awake()
     {
-        DontDestroyOnLoad(this.gameObject);
+        if (!AudioBegin)
+        {
+            var audio = GetComponent<AudioSource>();
+            audio.Play();
+            audio.loop = true;
+            DontDestroyOnLoad(gameObject);
+            AudioBegin = true;
+        }
     }
 }

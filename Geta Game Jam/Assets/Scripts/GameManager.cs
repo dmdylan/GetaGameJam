@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public IntValue levelCounter;
     public FloatValue playerHealth;
     public FloatValue playerScore;
+    public FloatValue highScore;
 
     public GameObject endDoor;
 
@@ -61,5 +62,8 @@ public class GameManager : MonoBehaviour
     {
         if (playerScore.Value > PlayerPrefs.GetFloat("HighScore"))
             PlayerPrefs.SetFloat("HighScore", playerScore.Value);
+        
+        //if (playerScore.Value > highScore.Value)
+        //    highScore.Value = playerScore.Value;
     }
 }

@@ -1,6 +1,7 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - CallAudio
     - EndLevelDoor
     - Enemy
     - EnemyProfile
@@ -21,6 +22,7 @@ ScriptsOnlyBuild:
     - Props
     - PropsProfile
     - Spawner
+    - UnlockMouse
     - WeaponProfile
     Unity.ProBuilder.dll:
     - UnityEngine.ProBuilder.ProBuilderMesh
@@ -33,10 +35,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -78,10 +78,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
-    - Class: 82
-      Script: {instanceID: 0}
-    - Class: 83
-      Script: {instanceID: 0}
     - Class: 90
       Script: {instanceID: 0}
     - Class: 91
@@ -120,8 +116,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 10704}
     - Class: 114
       Script: {instanceID: 10898}
-    - Class: 114
-      Script: {instanceID: 10950}
     - Class: 114
       Script: {instanceID: 10960}
     - Class: 114
@@ -183,6 +177,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 108
@@ -208,6 +206,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 10744}
     - Class: 114
+      Script: {instanceID: 10950}
+    - Class: 114
       Script: {instanceID: 11294}
     - Class: 114
       Script: {instanceID: 11310}
@@ -221,6 +221,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 11948}
     - Class: 114
       Script: {instanceID: 12120}
+    - Class: 114
+      Script: {instanceID: 22428}
+    - Class: 114
+      Script: {instanceID: 25090}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -992,13 +996,13 @@ ScriptsOnlyBuild:
     className: FirstPersonCamera
   - hash:
       serializedVersion: 2
-      Hash: da3e277be2ca057d06919bac162659a2
+      Hash: 6eaa3654a9f092929102a29e3b22c370
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameManager
   - hash:
       serializedVersion: 2
-      Hash: bbbdcda245b3c56f1239cffc728f8bf5
+      Hash: 83f55a127bd42e8b293edefe89b55905
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GetPlayerHighScore
@@ -1080,6 +1084,18 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: UnlockMouse
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CallAudio
   platform: 5
   scenePathNames:
   - Assets/Scenes/Menu.unity
